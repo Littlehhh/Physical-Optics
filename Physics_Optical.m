@@ -1,3 +1,9 @@
+%
+%
+%
+%
+%
+
 function varargout = Physics_Optical(varargin)
 % PHYSICS_OPTICAL MATLAB code for Physics_Optical.fig
 %      PHYSICS_OPTICAL, by itself, creates a new PHYSICS_OPTICAL or raises the existing
@@ -22,7 +28,7 @@ function varargout = Physics_Optical(varargin)
 
 % Edit the above text to modify the response to help Physics_Optical
 
-% Last Modified by GUIDE v2.5 28-Sep-2016 18:27:52
+% Last Modified by GUIDE v2.5 30-Sep-2016 09:20:17
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -214,33 +220,66 @@ n1=str2double(get(handles.n1,'String'));
 n2=str2double(get(handles.n2,'String'));
 u1=str2double(get(handles.u1,'String'));
 u2=str2double(get(handles.u2,'String'));
-[rp,tp,rs,ts,PN,TN,theta] = Fresnel(n1,n2,u1,u2); 
+[rp,tp,PP,TP,rs,ts,PS,TS,PN,TN,theta] = Fresnel(n1,n2,u1,u2);  
 
 if get(handles.radiobutton1,'Value')==1
     
-    plot(theta,rp,'-',theta,tp,':','LineWidth',3);
+    plot(theta,rp,'-',theta,tp,':',theta,PP,'--',theta,TP,'-.','LineWidth',3);
     grid on;
-    legend('rp','tp');
+    legend('r_p','t_p','\rho_p','\tau_p');
     xlabel('入射角\theta');
-    ylabel('折、反射系数');
-    title(['n1=',num2str(n1),', n2=',num2str(n2),' 时P波折、反射系数随入射角的变化曲线']);
+    ylabel('振幅系数');
+    title(['n1=',num2str(n1),', n2=',num2str(n2),' 时P波振幅透、反射系数及透、反射比随入射角的变化曲线']);
 else if get(handles.radiobutton2,'Value')==1
-    plot(theta,rs,'-',theta,ts,':','LineWidth',3);
+    plot(theta,rs,'-',theta,ts,':',theta,PS,'--',theta,TS,'-.','LineWidth',3);
     grid on;
-    legend('rs','ts');
+    legend('r_s','t_s','\rho_s','\tau_s');
     xlabel('入射角\theta');
-    ylabel('折、反射系数');
-    title(['n1=',num2str(n1),', n2=',num2str(n2),' 时S波折、反射系数随入射角的变化曲线']);
+    ylabel('振幅系数');
+    title(['n1=',num2str(n1),', n2=',num2str(n2),' 时S波振幅透、反射系数及透、反射比随入射角的变化曲线']);
     else if get(handles.radiobutton3,'Value')==1 
     plot(theta,PN,'-',theta,TN,':','LineWidth',3);
     grid on;
-    legend('Pn','Tn');
+    legend('\rho_n','\tau_n');
     xlabel('入射角\theta');
-    ylabel('折、反射率');
-    title(['n1=',num2str(n1),', n2=',num2str(n2),' 时自然光折、反射率随入射角的变化曲线']);
+    ylabel('振幅折、反射率');
+    title(['n1=',num2str(n1),', n2=',num2str(n2),' 时自然光振幅透、反射比随入射角的变化曲线']);
         else
     helpdlg('请选择一个类型的光波',...
         '提示');
         end
-     end
+    end
+end
+
+
+% --- Executes on button press in pushbutton4.
+function pushbutton4_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+n1=str2double(get(handles.n1,'String'));
+n2=str2double(get(handles.n2,'String'));
+u1=str2double(get(handles.u1,'String'));
+u2=str2double(get(handles.u2,'String'));
+[rp,tp,PP,TP,rs,ts,PS,TS,PN,TN,theta] = Fresnel(n1,n2,u1,u2);
+ plot(theta,rp,'-',theta,tp,':',theta,rs,'--',theta,ts,'-.','LineWidth',3);
+ grid on;
+ legend('r_p','t_p','r_s','t_s');
+ xlabel('入射角\theta');
+ ylabel('振幅系数');
+ title(['n1=',num2str(n1),', n2=',num2str(n2),' 时P波与S波振幅透、反射系数随入射角的变化曲线对比']);
+
+
+% --- Executes on button press in pushbutton6.
+function pushbutton6_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton6 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+[f,p,FilterIndex]=uiputfile({'*.jpg'},'保存文件');
+if FilterIndex == 0
+    
+else
+str=strcat(p,f);
+pix=getframe(handles.axes1);
+imwrite(pix.cdata,str,'jpg');
 end
