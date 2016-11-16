@@ -6,4 +6,4 @@ figure
 imshow(Out_abs);
 figure
 imshow(Out_angle);
-OutputPicture(Out_abs);
+% OutputPicture(Out_abs);
