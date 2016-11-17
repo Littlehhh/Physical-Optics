@@ -1,5 +1,5 @@
 function Output = myGaussian2D(Xsize,Ysize)
 
-X = myStep(Xsize);
-Y = myStep(Ysize);
+X = myGaussian(Xsize);
+Y = myGaussian(Ysize);
 Output = X'*Y;
