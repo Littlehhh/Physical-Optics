@@ -1,5 +1,5 @@
-function Output = myComb2D(Xsize,Ysize)
+function Output = myComb2D(Xsize,Ysize,N)
 
-X = myComb(Xsize);
-Y = myComb(Ysize);
+X = myComb(Xsize,N);
+Y = myComb(Ysize,N);
 Output = X'*Y;

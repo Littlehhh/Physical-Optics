@@ -1,4 +1,4 @@
-function output = myRect2D(sizex,sizey,deltaN,constc)
+function output = myRect2D(sizex,sizey,deltaN)
 %%Rect2D function 
 
 % clc
@@ -8,11 +8,11 @@ function output = myRect2D(sizex,sizey,deltaN,constc)
 Lx = sizex;
 Ly = sizey;
 N = deltaN;
-c = constc;
 
 
-tempx = myRect(Lx,N,c);
-tempy = myRect(Ly,N,c);
+
+tempx = myRect(Lx,N);
+tempy = myRect(Ly,N);
 %output = zeros();
 
 output = tempx'*tempy;

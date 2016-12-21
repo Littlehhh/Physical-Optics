@@ -18,8 +18,8 @@ beta2 = 90; %y
 
 
 %parameters of CCD
-m = 2;   %
-n = 1;   
+m = 4;   %
+n = 2;   
 dd = 0.01; % 采样率  采样间隔
 
 

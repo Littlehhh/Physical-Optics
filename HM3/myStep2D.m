@@ -1,4 +1,4 @@
-function Output = myStep2D(Xsize,Ysize)
-X = myStep(Xsize);
-Y = myStep(Ysize);
+function Output = myStep2D(Xsize,Ysize,N)
+X = myStep(Xsize,N);
+Y = myStep(Ysize,N);
 Output =Y'*X;

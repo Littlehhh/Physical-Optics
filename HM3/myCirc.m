@@ -1,7 +1,8 @@
-function Output = myCirc(Xsize,Ysize)
+function Output = myCirc(Xsize,Ysize,N)
 % Xsize=10;
 % Ysize=10;
-dx = 0.1;    
+dx = Xsize/N; 
+
 x = -Xsize/2:dx:Xsize/2;
 y = -Ysize/2:dx:Ysize/2;
 Output = zeros(length(x),length(y));
