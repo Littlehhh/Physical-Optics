@@ -1,6 +1,6 @@
 
 clc
-close  all
+%close  all
 clear
 
 Input = InputPicture();
@@ -24,8 +24,8 @@ ImgBeforeLens = PropCov(Input,lamda,zBeLens,sizexSLM,sizeySLM);
 % myOutput(ImgBeforeLens)
 %¹ýÍ¸¾µ
 ImgAftLens = myLens(ImgBeforeLens,Focal,sizexSLM,sizeySLM,lamda);
-% myOutput(ImgAftLens)
-%Í¸¾µºó·ÆÄù¶ûÑÜÉä
+% % myOutput(ImgAftLens)
+% %Í¸¾µºó·ÆÄù¶ûÑÜÉä
 Out = PropCov(ImgAftLens,lamda,zAfterLen,sizexSLM,sizeySLM);
 myOutput(Out)
 

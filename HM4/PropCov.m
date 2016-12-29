@@ -1,7 +1,5 @@
 function Out = PropCov(Input,lamda,z,sizexSLM,sizeySLM)
-% clc
-% close  all
-% clear
+
 
 % Input = InputPicture();
 % 
@@ -27,11 +25,12 @@ yy = -sizeySLM/2:dx:sizeySLM/2-dy;
 h = exp(1i*k*(x.^2+y.^2)./(2*z));
 
 
-Output = conv2(Input,h,'same');
+% Output = conv2(Input,h,'same');
 % Output = ifft2(fft2(Input).*fft2(h));
-
-
+% Output = h.*fft2(Input.*h);
+Output = ifft2(fft2(Input).*fft2(h));
 Out = exp(1i*k*z).*Output/(1i*lamda*z);
+
 
 
 
