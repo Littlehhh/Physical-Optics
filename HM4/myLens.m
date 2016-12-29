@@ -1,8 +1,7 @@
 function Output = myLens(Input_BeLens,Focal,Lx,Ly,waveLength)
-
 [length,width] = size(Input_BeLens);
- dx = Lx/length;
- dy = Ly/width;
+dx = Lx/length;
+dy = Ly/width;
 xx = -Lx/2:dx:Lx/2-dx;
 yy = -Ly/2:dx:Ly/2-dy;
 [x,y] = meshgrid(xx,yy);

@@ -21,13 +21,13 @@ zAfterLen = 800;
 Focal = 400;
 %Í¸¾µÇ°·ÆÄù¶úÑÜÉä
 ImgBeforeLens = PropCov(Input,lamda,zBeLens,sizexSLM,sizeySLM);
-myOutput(ImgBeforeLens)
+% myOutput(ImgBeforeLens)
 %¹ýÍ¸¾µ
-% ImgAftLens = myLens(ImgBeforeLens,Focal,sizexSLM,sizeySLM,lamda);
+ImgAftLens = myLens(ImgBeforeLens,Focal,sizexSLM,sizeySLM,lamda);
 % myOutput(ImgAftLens)
-% %Í¸¾µºó·ÆÄù¶ûÑÜÉä
-% Out = PropCov(ImgAftLens,lamda,zAfterLen,sizexSLM,sizeySLM);
-% myOutput(Out)
+%Í¸¾µºó·ÆÄù¶ûÑÜÉä
+Out = PropCov(ImgAftLens,lamda,zAfterLen,sizexSLM,sizeySLM);
+myOutput(Out)
 
 
 % Out_abs = mat2gray(abs(Out));

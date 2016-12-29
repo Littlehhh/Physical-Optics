@@ -81,6 +81,36 @@ function select_Callback(hObject, eventdata, handles)
 % hObject    handle to select (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+Xsize = 10;
+Ysize = 10;
+deltaN = 100;
+select = get(handles.select,'Value');
+switch select
+    case 1
+       Output = myRect2D(Xsize,Ysize,deltaN);
+    case 2
+       Output = myTriangle2D(Xsize,Ysize,deltaN);   
+    case 3
+       Output = myComb2D(Xsize,Ysize,deltaN);         
+    case 4
+       Output = mySgn2D(Xsize,Ysize,deltaN);             
+    case 5
+       Output = myStep2D(Xsize,Ysize,deltaN);                
+    case 6
+       Output = myCirc(Xsize,Ysize,deltaN);                     
+    case 7
+       Output = myGaussian2D(Xsize,Ysize,deltaN); 
+end
+x = -deltaN/2:deltaN/2;
+DFT = abs(fftshift(fft2(Output)));
+axes(handles.TD);
+% axis off;
+mesh(x,x,Output);
+axes(handles.fft);
+mesh(x,x,DFT);
+handles.DFT = DFT;
+guidata(hObject, handles);
+
 
 % Hints: contents = cellstr(get(hObject,'String')) returns select contents as cell array
 %        contents{get(hObject,'Value')} returns selected item from select
