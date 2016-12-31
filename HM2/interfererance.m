@@ -9,11 +9,11 @@ z = 1;    %  can't zero
 lamda = 500e-6;
 
 
-alpha1 = 80; %x
-beta1 = 90; %y
+alpha1 = 90; %x
+beta1 = 80; %y
 
-alpha2 = 100; %x
-beta2 = 90; %y
+alpha2 = 90; %x
+beta2 = 100; %y
 
 
 

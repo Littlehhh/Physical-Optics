@@ -26,9 +26,9 @@ h = exp(1i*k*(x.^2+y.^2)./(2*z));
 
 
 % Output = conv2(Input,h,'same');
+% Output = ifftshift(ifft2(fft2(Input).*fft2(h)));
+Output = h.*fftshift(fft2(Input.*h));
 % Output = ifft2(fft2(Input).*fft2(h));
-% Output = h.*fft2(Input.*h);
-Output = ifft2(fft2(Input).*fft2(h));
 Out = exp(1i*k*z).*Output/(1i*lamda*z);
 
 
