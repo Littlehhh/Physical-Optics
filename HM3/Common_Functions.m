@@ -100,6 +100,8 @@ switch select
        Output = myCirc(Xsize,Ysize,deltaN);                     
     case 7
        Output = myGaussian2D(Xsize,Ysize,deltaN); 
+    case 8
+       Output = mySinc2D(Xsize,Ysize,deltaN);
 end
 x = -deltaN/2:deltaN/2;
 DFT = abs(fftshift(fft2(Output)));
@@ -156,6 +158,8 @@ switch select
        Output = myCirc(Xsize,Ysize,deltaN);                     
     case 7
        Output = myGaussian2D(Xsize,Ysize,deltaN); 
+    case 8
+       Output = mySinc2D(Xsize,Ysize,deltaN);
 end
 x = -deltaN/2:deltaN/2;
 DFT = abs(fftshift(fft2(Output)));

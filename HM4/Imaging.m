@@ -11,8 +11,8 @@ end
 Input = double(Input)/255;
 lamda = 532/1000000;
 
-sizexSLM = 12;
-sizeySLM = 12;
+sizexSLM = 10;
+sizeySLM = 10;
 %²ÉÑùÂÊ
 
 %´«²¥¾àÀë
@@ -22,12 +22,12 @@ Focal = 400;
 %Í¸¾µÇ°·ÆÄù¶úÑÜÉä
 ImgBeforeLens = PropCov(Input,lamda,zBeLens,sizexSLM,sizeySLM);
 myOutput(ImgBeforeLens)
-% ¹ıÍ¸¾µ
-% ImgAftLens = myLens(ImgBeforeLens,Focal,sizexSLM,sizeySLM,lamda);
-% % % myOutput(ImgAftLens)
-% % %Í¸¾µºó·ÆÄù¶ûÑÜÉä
-% Out = PropCov(ImgAftLens,lamda,zAfterLen,sizexSLM,sizeySLM);
-% myOutput(Out)
+%¹ıÍ¸¾µ
+ImgAftLens = myLens(ImgBeforeLens,Focal,sizexSLM,sizeySLM,lamda);
+% % myOutput(ImgAftLens)
+% %Í¸¾µºó·ÆÄù¶ûÑÜÉä
+Out = PropCov(ImgAftLens,lamda,zAfterLen,sizexSLM,sizeySLM);
+myOutput(Out)
 
 
 % Out_abs = mat2gray(abs(Out));

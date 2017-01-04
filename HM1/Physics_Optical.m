@@ -1,9 +1,3 @@
-%
-%
-%
-%
-%
-
 function varargout = Physics_Optical(varargin)
 % PHYSICS_OPTICAL MATLAB code for Physics_Optical.fig
 %      PHYSICS_OPTICAL, by itself, creates a new PHYSICS_OPTICAL or raises the existing

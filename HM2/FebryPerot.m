@@ -22,7 +22,7 @@ function varargout = FebryPerot(varargin)
 
 % Edit the above text to modify the response to help FebryPerot
 
-% Last Modified by GUIDE v2.5 29-Dec-2016 19:44:04
+% Last Modified by GUIDE v2.5 03-Jan-2017 22:37:06
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -54,7 +54,21 @@ function FebryPerot_OpeningFcn(hObject, eventdata, handles, varargin)
 
 % Choose default command line output for FebryPerot
 handles.output = hObject;
-
+set(handles.sliderrio,'Max',0.99);
+set(handles.sliderrio,'Min',0.01);
+set(handles.sliderrio,'Value',0.99);
+set(handles.lamda,'String','546.1');
+set(handles.n,'String','6');
+set(handles.length,'String','150');
+set(handles.width,'String','150');
+set(handles.dd,'String','0.2');
+set(handles.d,'String','0.9');
+set(handles.rio,'String','0.99');
+F = 4*0.99/(0.01^2);
+set(handles.F,'String',num2str(F));
+axes(handles.theory);
+imshow('F_P干涉仪.png');
+display_Callback(hObject, eventdata, handles);
 % Update handles structure
 guidata(hObject, handles);
 
@@ -189,18 +203,18 @@ end
 
 
 
-function rate_Callback(hObject, eventdata, handles)
-% hObject    handle to rate (see GCBO)
+function dd_Callback(hObject, eventdata, handles)
+% hObject    handle to dd (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of rate as text
-%        str2double(get(hObject,'String')) returns contents of rate as a double
+% Hints: get(hObject,'String') returns contents of dd as text
+%        str2double(get(hObject,'String')) returns contents of dd as a double
 
 
 % --- Executes during object creation, after setting all properties.
-function rate_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to rate (see GCBO)
+function dd_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to dd (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -239,7 +253,11 @@ function sliderrio_Callback(hObject, eventdata, handles)
 % hObject    handle to sliderrio (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+rio = get(handles.sliderrio,'Value');
+set(handles.rio,'String',num2str(rio));
+F = 4*0.99/((1-rio)^2);
+set(handles.F,'String',num2str(F));
+display_Callback(hObject, eventdata, handles);
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
 
@@ -254,3 +272,55 @@ function sliderrio_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
+
+
+
+function E = multi_beam_interference(lamda,m,n,dd,rio,d,times)
+% lamda = 546.1e-6;
+% z = 10000;
+% z2 = 10500;
+%caculate
+z = 1000;
+%parameters of CCD
+% m = 20;   %
+% n = 20;   
+% dd = 0.02; % 采样率  采样间隔
+A = 1;
+% rio = 0.9;
+A0 = (1-rio)*A;
+E = Gen_Sphere(A0,lamda,m,n,dd,z); 
+for i=1:times
+  z = z+d;
+  A0 = rio*A0;
+  E1 = Gen_Sphere(A0,lamda,m,n,dd,z); 
+  E = E+E1;
+end
+E = abs(E.^2);
+
+
+
+% --- Executes on button press in display.
+function display_Callback(hObject, eventdata, handles)
+% hObject    handle to display (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+m = str2double(get(handles.length,'String'));   %
+n = str2double(get(handles.width,'String'));   
+dd = str2double(get(handles.dd,'String')); % 采样率  采样间隔
+rio = str2double(get(handles.rio,'String'));
+d = str2double(get(handles.d,'String'));
+times = str2double(get(handles.n,'String'));
+lamda = str2double(get(handles.lamda,'String'));
+handles.E = multi_beam_interference(lamda*1e-6,m,n,dd,rio,d,times);
+axes(handles.fp);
+imshow(handles.E,[]);
+guidata(hObject, handles);
+
+
+% --- Executes on button press in plot.
+function plot_Callback(hObject, eventdata, handles)
+% hObject    handle to plot (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+figure
+plot(1:size(handles.E,2),handles.E(size(handles.E,1)/2,:))
