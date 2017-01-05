@@ -22,7 +22,7 @@ function varargout = Diffraction(varargin)
 
 % Edit the above text to modify the response to help Diffraction
 
-% Last Modified by GUIDE v2.5 03-Jan-2017 21:07:56
+% Last Modified by GUIDE v2.5 04-Jan-2017 09:07:45
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -110,6 +110,10 @@ axes(handles.alen);
 imshow(abs(ImgAftLens),[]);
 axes(handles.imaging);
 imshow(abs(Out),[]);
+handles.ImgBeforeLens = mat2gray(abs(ImgBeforeLens));
+handles.ImgAftLens = mat2gray(abs(ImgAftLens));
+handles.Out = mat2gray(abs(Out));
+guidata(hObject, handles);
 % Hints: get(hObject,'String') returns contents of AfLen as text
 %        str2double(get(hObject,'String')) returns contents of AfLen as a double
 
@@ -148,6 +152,10 @@ axes(handles.alen);
 imshow(abs(ImgAftLens),[]);
 axes(handles.imaging);
 imshow(abs(Out),[]);
+handles.ImgBeforeLens = mat2gray(abs(ImgBeforeLens));
+handles.ImgAftLens = mat2gray(abs(ImgAftLens));
+handles.Out = mat2gray(abs(Out));
+guidata(hObject, handles);
 % Hints: get(hObject,'String') returns contents of BeLen as text
 %        str2double(get(hObject,'String')) returns contents of BeLen as a double
 
@@ -186,6 +194,10 @@ axes(handles.alen);
 imshow(abs(ImgAftLens),[]);
 axes(handles.imaging);
 imshow(abs(Out),[]);
+handles.ImgBeforeLens = mat2gray(abs(ImgBeforeLens));
+handles.ImgAftLens = mat2gray(abs(ImgAftLens));
+handles.Out = mat2gray(abs(Out));
+guidata(hObject, handles);
 % Hints: get(hObject,'String') returns contents of focal as text
 %        str2double(get(hObject,'String')) returns contents of focal as a double
 
@@ -224,6 +236,10 @@ axes(handles.alen);
 imshow(abs(ImgAftLens),[]);
 axes(handles.imaging);
 imshow(abs(Out),[]);
+handles.ImgBeforeLens = mat2gray(abs(ImgBeforeLens));
+handles.ImgAftLens = mat2gray(abs(ImgAftLens));
+handles.Out = mat2gray(abs(Out));
+guidata(hObject, handles);
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
 
@@ -261,6 +277,10 @@ axes(handles.alen);
 imshow(abs(ImgAftLens),[]);
 axes(handles.imaging);
 imshow(abs(Out),[]);
+handles.ImgBeforeLens = mat2gray(abs(ImgBeforeLens));
+handles.ImgAftLens = mat2gray(abs(ImgAftLens));
+handles.Out = mat2gray(abs(Out));
+guidata(hObject, handles);
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
 
@@ -298,7 +318,10 @@ axes(handles.alen);
 imshow(abs(ImgAftLens),[]);
 axes(handles.imaging);
 imshow(abs(Out),[]);
-
+handles.ImgBeforeLens = mat2gray(abs(ImgBeforeLens));
+handles.ImgAftLens = mat2gray(abs(ImgAftLens));
+handles.Out = mat2gray(abs(Out));
+guidata(hObject, handles);
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
 
@@ -363,5 +386,38 @@ imshow(abs(ImgBeforeLens),[]);
 axes(handles.alen);
 imshow(abs(ImgAftLens),[]);
 axes(handles.imaging);
+handles.imaging
 imshow(abs(Out),[]);
+handles.ImgBeforeLens = mat2gray(abs(ImgBeforeLens));
+handles.ImgAftLens = mat2gray(abs(ImgAftLens));
+handles.Out = mat2gray(abs(Out));
 guidata(hObject, handles);
+
+
+% --- Executes on button press in save1.
+function save1_Callback(hObject, eventdata, handles)
+% hObject    handle to save1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+OutputPicture(handles.Input)
+% --- Executes on button press in save2.
+function save2_Callback(hObject, eventdata, handles)
+% hObject    handle to save2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+OutputPicture(handles.ImgBeforeLens)
+
+% --- Executes on button press in save3.
+function save3_Callback(hObject, eventdata, handles)
+% hObject    handle to save3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+OutputPicture(handles.ImgAftLens)
+
+% --- Executes on button press in save4.
+function save4_Callback(hObject, eventdata, handles)
+% hObject    handle to save4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+OutputPicture(handles.Out)
