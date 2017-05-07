@@ -22,7 +22,7 @@ function varargout = Diffraction(varargin)
 
 % Edit the above text to modify the response to help Diffraction
 
-% Last Modified by GUIDE v2.5 04-Jan-2017 09:07:45
+% Last Modified by GUIDE v2.5 07-May-2017 11:30:18
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
