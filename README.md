@@ -39,7 +39,7 @@ It's some sumilink with GUI(Graphical User Interface)
     2. 透镜的传递函数
   * GUI界面  
   ![]()
-* HM5(QT框架 & OpenCV)
+* HM5(C++ & QT框架 & OpenCV)
   * 频域滤波小软件  
   * GUI界面  
-  ![]()
+  ![](https://github.com/Littlehhh/Digital-Image-Processing/raw/master/Experiment%205/screen.bmp)
