@@ -17,7 +17,8 @@ It's some sumilink with GUI(Graphical User Interface)
   * 实现生成平面波和球面波分布子函数
   * 根据平行平板多光束干涉原理实现
     1.F-P干涉仪数值模拟
-    2.塞曼效应数值模拟及F-P标准具数值计算显示其结果
+    2.塞曼效应数值模拟及F-P标准具数值计算显示其结果  
+    [`塞曼效应及F-P标准具的计算机模拟 王辉 光电专业实验研究论文`](https://github.com/Littlehhh/Physical-Optics/blob/master/HM2/%E5%A1%9E%E6%9B%BC%E6%95%88%E5%BA%94%E5%8F%8AF-P%E6%A0%87%E5%87%86%E5%85%B7%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A8%A1%E6%8B%9F.pdf)
   * GUI界面
     1. F-P干涉仪  
     ![](https://github.com/Littlehhh/Physical-Optics/raw/master/HM2/%E6%88%AA%E5%9B%BE.bmp)
