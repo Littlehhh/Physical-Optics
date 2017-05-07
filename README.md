@@ -12,14 +12,17 @@ It's some sumilink with GUI(Graphical User Interface)
     2. P波、S波的透射比及反射比
     3. 自然光的透射比和反射比
   * GUI界面  
-  ![]()
+  ![](https://github.com/Littlehhh/Physical-Optics/raw/master/HM1/%E6%88%AA%E5%9B%BE.bmp)
 * HM2(Matlab实现)
   * 实现生成平面波和球面波分布子函数
   * 根据平行平板多光束干涉原理实现
     1.F-P干涉仪数值模拟
     2.塞曼效应数值模拟及F-P标准具数值计算显示其结果
-  * GUI界面  
-  ![]()
+  * GUI界面
+    1. F-P干涉仪  
+    ![](https://github.com/Littlehhh/Physical-Optics/raw/master/HM2/%E6%88%AA%E5%9B%BE.bmp)
+    2. 塞曼效应数值模拟
+    ![](https://github.com/Littlehhh/Physical-Optics/raw/master/HM2/%E6%88%AA%E5%9B%BE2.bmp)
 * HM3(Matlab实现)
   * 几种常用的特殊函数及其傅里叶变换图像绘制（一维和二维）
     1. 圆域函数
@@ -32,13 +35,13 @@ It's some sumilink with GUI(Graphical User Interface)
     8. 三角函数
   * 函数图像保存函数
   * GUI界面  
-  ![]()
+  ![](https://github.com/Littlehhh/Physical-Optics/raw/master/HM3/%E6%88%AA%E5%9B%BE.bmp)
 * HM4(Matlab实现)
   * 4f系统数值模拟
     1. 菲涅尔衍射函数
     2. 透镜的传递函数
   * GUI界面  
-  ![]()
+  ![](https://github.com/Littlehhh/Physical-Optics/raw/master/HM4/%E6%88%AA%E5%9B%BE.bmp)
 * HM5(C++ & QT框架 & OpenCV)
   * 频域滤波小软件  
   * GUI界面  
