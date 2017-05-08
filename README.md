@@ -4,7 +4,9 @@ Physical Optics HomeWork
 It's some sumilink with GUI(Graphical User Interface)
 ****
 ### Author: Hui Wang
+### E-mail: 1061659563@qq.com or wanghuichn@yahoo.com
 ****
+
 ## Contents & Mainly functions of these codes
 * HM1(Matlab实现)
   * 根据菲涅尔公式计算
