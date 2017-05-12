@@ -1,7 +1,7 @@
 Physical-Optics
 =====
 Physical Optics HomeWork  
-It's some sumilink with GUI(Graphical User Interface)
+It's some simulink with GUI(Graphical User Interface)
 ****
 ### Author: Hui Wang
 ### E-mail: 1061659563@qq.com or wanghuichn@yahoo.com
