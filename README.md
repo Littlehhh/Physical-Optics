@@ -27,7 +27,7 @@ It's some simulink with GUI(Graphical User Interface)
     2. 塞曼效应数值模拟
     ![](https://github.com/Littlehhh/Physical-Optics/raw/master/HM2/%E6%88%AA%E5%9B%BE2.bmp)
 * HM3(Matlab实现)
-  * 几种常用的特殊函数及其傅里叶变换图像绘制（一维和二维）
+  * 几种常用的特殊函数及其傅里叶变换图像绘制（一维和二维）使用MATLAB自带`fft2()`函数
     1. 圆域函数
     2. 梳妆函数
     3. 高斯函数
@@ -43,9 +43,13 @@ It's some simulink with GUI(Graphical User Interface)
   * 4f系统数值模拟
     1. 菲涅尔衍射函数
     2. 透镜的传递函数
+    3. 衍射数值计算，根据卷积定理将菲涅尔衍射转为二维傅里叶变换的形式。
   * GUI界面截图  
   ![](https://github.com/Littlehhh/Physical-Optics/raw/master/HM4/%E6%88%AA%E5%9B%BE.bmp)
 * HM5(C++ & QT框架 & OpenCV)
-  * 频域滤波小软件  
+  * 频域滤波小软件
+      1. 理想滤波器
+      2. 巴特沃斯滤波器
+      3. 高斯滤波器
   * GUI界面截图  
   ![](https://github.com/Littlehhh/Digital-Image-Processing/raw/master/Experiment%205/screen.bmp)
